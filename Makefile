@@ -31,8 +31,8 @@
 #
 ifneq ($(KERNELRELEASE),)
 
-obj-m += e1000.o
-e1000-objs := e1000_main.o e1000_hw.o e1000_ethtool.o e1000_param.o
+obj-m += e1000_dev.o
+e1000_dev-objs := e1000_main.o e1000_hw.o e1000_ethtool.o e1000_param.o
 
 else
 
@@ -43,4 +43,6 @@ default:
 	echo $(KERNELDIR)
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 
+clean:
+	rm *.o *.ko *.mod.c modules.order Module.symvers
 endif
