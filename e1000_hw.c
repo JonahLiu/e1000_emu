@@ -3218,7 +3218,8 @@ static s32 e1000_detect_gig_phy(struct e1000_hw *hw)
 	case e1000_82545_rev_3:
 	case e1000_82546:
 	case e1000_82546_rev_3:
-		if (hw->phy_id == M88E1011_I_PHY_ID)
+		if ((hw->phy_id == M88E1011_I_PHY_ID) ||
+                    (hw->phy_id == M88E1111_I_PHY_ID))
 			match = true;
 		break;
 	case e1000_ce4100:

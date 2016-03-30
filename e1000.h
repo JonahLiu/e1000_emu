@@ -326,15 +326,15 @@ enum e1000_state_t {
 
 extern struct net_device *e1000_get_hw_dev(struct e1000_hw *hw);
 #define e_dbg(format, arg...) \
-	netdev_dbg(e1000_get_hw_dev(hw), format, ## arg)
+	netdev_warn(e1000_get_hw_dev(hw), format, ## arg)
 #define e_err(msglvl, format, arg...) \
 	netif_err(adapter, msglvl, adapter->netdev, format, ## arg)
 #define e_info(msglvl, format, arg...) \
-	netif_info(adapter, msglvl, adapter->netdev, format, ## arg)
+	netif_warn(adapter, msglvl, adapter->netdev, format, ## arg)
 #define e_warn(msglvl, format, arg...) \
 	netif_warn(adapter, msglvl, adapter->netdev, format, ## arg)
 #define e_notice(msglvl, format, arg...) \
-	netif_notice(adapter, msglvl, adapter->netdev, format, ## arg)
+	netif_warn(adapter, msglvl, adapter->netdev, format, ## arg)
 #define e_dev_info(format, arg...) \
 	dev_info(&adapter->pdev->dev, format, ## arg)
 #define e_dev_warn(format, arg...) \
